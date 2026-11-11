@@ -51,7 +51,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: 0xctx/pivotal-live
-          ref: "da96c50e1ea72f2a3923795aec5d324fb56fde23"
+          ref: "9b2ff95aab87f167ed58cf03d511b7ae8c38711b"
           path: pivotal
           persist-credentials: false
       - name: Decide trust
@@ -73,13 +73,13 @@ jobs:
       contents: write
       issues: write
       pull-requests: write
-    uses: 0xctx/pivotal-live/.github/workflows/factory.yml@da96c50e1ea72f2a3923795aec5d324fb56fde23
+    uses: 0xctx/pivotal-live/.github/workflows/factory.yml@9b2ff95aab87f167ed58cf03d511b7ae8c38711b
     with:
       trusted: ${{ needs.trust.outputs.trusted == 'true' }}
       kind: ${{ needs.trust.outputs.kind }}
       issue: ${{ needs.trust.outputs.issue }}
       issue_pin: ${{ needs.trust.outputs.pin }}
-      engine_sha: "da96c50e1ea72f2a3923795aec5d324fb56fde23"
+      engine_sha: "9b2ff95aab87f167ed58cf03d511b7ae8c38711b"
       preset: ${{ vars.PIVOTAL_PRESET }}
     secrets:
       CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -110,13 +110,13 @@ jobs:
       contents: write
       issues: write
       pull-requests: write
-    uses: 0xctx/pivotal-live/.github/workflows/factory.yml@da96c50e1ea72f2a3923795aec5d324fb56fde23
+    uses: 0xctx/pivotal-live/.github/workflows/factory.yml@9b2ff95aab87f167ed58cf03d511b7ae8c38711b
     with:
       trusted: ${{ needs.trust.outputs.trusted == 'true' }}
       kind: ${{ needs.trust.outputs.kind }}
       issue: ${{ needs.trust.outputs.issue }}
       issue_pin: ${{ needs.trust.outputs.pin }}
-      engine_sha: "da96c50e1ea72f2a3923795aec5d324fb56fde23"
+      engine_sha: "9b2ff95aab87f167ed58cf03d511b7ae8c38711b"
       preset: ${{ vars.PIVOTAL_UNTRUSTED_PRESET }}
     secrets:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -138,10 +138,10 @@ jobs:
       contents: write
       issues: write
       pull-requests: write
-    uses: 0xctx/pivotal-live/.github/workflows/land.yml@da96c50e1ea72f2a3923795aec5d324fb56fde23
+    uses: 0xctx/pivotal-live/.github/workflows/land.yml@9b2ff95aab87f167ed58cf03d511b7ae8c38711b
     with:
       issue: ${{ needs.trust.outputs.issue }}
-      engine_sha: "da96c50e1ea72f2a3923795aec5d324fb56fde23"
+      engine_sha: "9b2ff95aab87f167ed58cf03d511b7ae8c38711b"
 
   stop:
     # Trusted only, no secret, and no concurrency group: it must not queue behind the run it cancels.
